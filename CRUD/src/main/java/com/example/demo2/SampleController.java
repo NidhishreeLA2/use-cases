@@ -12,19 +12,50 @@ public class SampleController {
 	@Autowired
 	private EmployeeRepo er;
 	
-	@GetMapping("/sample") 
-	public List<EmployeeEntity> getSample(){
-		ArrayList<EmployeeEntity> transformedvalues=new ArrayList<EmployeeEntity>();
+	@GetMapping("/employeename") 
+	public List<String> getSample(){
+		ArrayList<String> transformedvalues=new ArrayList<String>();
     	for(EmployeeEntity emt:er.findAll()) {
-    		EmployeeEntity temp=new EmployeeEntity();
-    		temp.setId(emt.getId());
-    		if(emt.getEmployee_name().contains("$")) {
-    			temp.setEmployee_name(emt.getEmployee_name().replaceAll("\\$", ""));
-    		}
-    		transformedvalues.add(temp);
+    		String name;
+    		name = emt.getEmployee_name();
+    		transformedvalues.add(name);
     	}
     	return transformedvalues;
 	}
 	
+	@GetMapping("/id") 
+	public List<Integer> getSample2(){
+		ArrayList<Integer> transformedvalues=new ArrayList<Integer>();
+    	for(EmployeeEntity emt:er.findAll()) {
+    		int id;
+    		id = emt.getId();
+    		transformedvalues.add(id);
+    	}
+    	return transformedvalues;
+	}
+	
+	@GetMapping("/A") 
+	public List<String> getSample3(){
+		ArrayList<String> transformedvalues=new ArrayList<String>();
+		
+    	for(EmployeeEntity emt:er.findAll()) {
+    		
+    		if(emt.getEmployee_name().startsWith("a")) {
+    			String name2;
+    			name2 = emt.getEmployee_name();
+    			transformedvalues.add(name2);
+    		}
+    	}
+    	return transformedvalues;
+	}
+	
+	
+    		
+    		
+    	
+	}
+    	
+	
+	
 
-}
+
