@@ -10,5 +10,11 @@ public interface ClientdetailsRepo extends JpaRepository<ClientdetailsEntity,Int
 	List<ClientdetailsEntity> findalldetails();
 	@Query(value = "select * from client where id =2",nativeQuery=true)
 	List<ClientdetailsEntity> findalldetails2();
+	@Query(value = "select * from client where term =5",nativeQuery=true)
+	List<ClientdetailsEntity> findallequalto5();
+	@Query(value = "select * from client where term > 5",nativeQuery=true)
+	List<ClientdetailsEntity> findallgreaterthan5();
+	@Query(value = "select * from client where term < 5",nativeQuery=true)
+	List<ClientdetailsEntity> findalllessthan5();
 
 }
