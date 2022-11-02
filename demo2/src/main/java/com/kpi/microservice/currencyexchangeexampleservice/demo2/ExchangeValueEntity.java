@@ -45,7 +45,7 @@ public class ExchangeValueEntity {
 	{  
 	return id;  
 	}  
-	public String getFrom()   
+	public String  getFrom()   
 	{  
 	return from;  
 	}  
